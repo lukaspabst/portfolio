@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, ExternalLink, Star, GitFork } from "lucide-react";
-import { useState } from "react";
 
-// Mock data - normally fetched from GitHub API
 const projects = [
     {
         name: "Customer-Service-Platform",
@@ -36,7 +34,6 @@ const projects = [
 ];
 
 export default function Projects() {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
         <section id="projects" className="py-24 relative w-full bg-black/20">
@@ -62,8 +59,6 @@ export default function Projects() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            onHoverStart={() => setHoveredIndex(index)}
-                            onHoverEnd={() => setHoveredIndex(null)}
                             className="group relative h-full"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

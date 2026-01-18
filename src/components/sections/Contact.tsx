@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 export default function Contact() {
-    const [formState, setFormState] = useState({
+    const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: "",
@@ -20,13 +20,13 @@ export default function Contact() {
             const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formState),
+                body: JSON.stringify(formData),
             });
 
             if (!response.ok) throw new Error("Failed to send");
 
             setStatus("success");
-            setFormState({ name: "", email: "", message: "" });
+            setFormData({ name: "", email: "", message: "" });
         } catch (error) {
             console.error(error);
             setStatus("error");
@@ -58,8 +58,8 @@ export default function Contact() {
                                     type="text"
                                     id="name"
                                     required
-                                    value={formState.name}
-                                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                                    value={formData.name}
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                     className="w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                                     placeholder="Your Name"
                                 />
@@ -73,8 +73,8 @@ export default function Contact() {
                                     type="email"
                                     id="email"
                                     required
-                                    value={formState.email}
-                                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                                    value={formData.email}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     className="w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                                     placeholder="your@email.com"
                                 />
@@ -88,8 +88,8 @@ export default function Contact() {
                                     id="message"
                                     required
                                     rows={4}
-                                    value={formState.message}
-                                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     className="w-full px-4 py-3 rounded-lg bg-black/20 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
                                     placeholder="How can I help you?"
                                 />
@@ -99,8 +99,8 @@ export default function Contact() {
                                 type="submit"
                                 disabled={status === "loading" || status === "success"}
                                 className={`w-full flex items-center justify-center py-3 rounded-lg font-medium transition-all ${status === "success"
-                                        ? "bg-green-500/20 text-green-400 border border-green-500/50 cursor-default"
-                                        : "bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-primary/25"
+                                    ? "bg-green-500/20 text-green-400 border border-green-500/50 cursor-default"
+                                    : "bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-primary/25"
                                     }`}
                             >
                                 {status === "loading" ? (

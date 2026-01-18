@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import HeroScene from "@/components/3d/HeroScene";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Mail } from "lucide-react";
 
 export default function Hero() {
     return (
@@ -24,7 +24,7 @@ export default function Hero() {
                             Hi, ich bin <span className="text-gradient">Lukas Pabst</span>.
                         </h1>
                         <p className="max-w-[700px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-                            Ein Softwareentwickler aus Mühlhausen/Thüringen. Derzeit tätig bei Finanz-Data GmbH, Gotha.
+                            Ein Softwareentwickler aus Mühlhausen/Thüringen. Derzeit tätig bei Primeo Energie AG, Sissach.
                             Experte in Java, Spring Boot und modernen Web-Technologien.
                         </p>
                     </motion.div>
@@ -56,11 +56,24 @@ export default function Hero() {
                         transition={{ duration: 1, delay: 0.5 }}
                         className="flex gap-6 text-gray-400"
                     >
-                        <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                        <a href="https://github.com/lukaspabst" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
                             <Github className="h-6 w-6" />
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
-                            <Linkedin className="h-6 w-6" />
+                        <a href="https://www.xing.com/profile/Lukas_Pabst102" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="h-6 w-6"
+                            >
+                                <path d="M16.35 3.55h-3.13L8.93 11.2 5.07 4.6H1.9l5.05 8.7L1.5 21l3.35-.05 5.2-9.25 5.15 9.25h3.35l-6.22-11.23z" />
+                            </svg>
                         </a>
                         <a href="mailto:lukas.pabst.business@outlook.de" className="hover:text-white transition-colors">
                             <Mail className="h-6 w-6" />
@@ -69,7 +82,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Scroll indicator */}
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}

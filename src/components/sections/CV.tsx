@@ -51,7 +51,6 @@ export default function CV() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    {/* Experience Column */}
                     <div className="space-y-8">
                         <div className="flex items-center gap-3 mb-6">
                             <Briefcase className="text-primary w-6 h-6" />
@@ -82,7 +81,6 @@ export default function CV() {
                         ))}
                     </div>
 
-                    {/* Education & Bio Column */}
                     <div className="space-y-12">
                         <div className="space-y-8">
                             <div className="flex items-center gap-3 mb-6">

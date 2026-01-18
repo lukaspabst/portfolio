@@ -4,10 +4,11 @@ import { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.cjs";
+import { Points as PointsType } from "three";
 
-function Stars(props: any) {
-    const ref = useRef<any>(null);
-    const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }));
+function Stars(props: Record<string, unknown>) {
+    const ref = useRef<PointsType>(null);
+    const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }) as Float32Array);
 
     useFrame((state, delta) => {
         if (ref.current) {
